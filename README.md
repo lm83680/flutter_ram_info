@@ -1,6 +1,7 @@
 # flutter_ram_info
 
 一个用于在 Flutter 侧统一获取设备内存信息的插件，支持 Android、iOS、OHOS。
+开箱即用，无需任何权限
 
 ## 功能
 
@@ -13,8 +14,7 @@
 
 ```yaml
 dependencies:
-  flutter_ram_info:
-    path: ../flutter_ram_info
+  flutter_ram_info: 
 ```
 
 ## 使用示例
@@ -40,19 +40,11 @@ final int? totalRamMB = await ramInfo.getTotalRamMB();
 
 ### OHOS
 
-使用 `@kit.ConnectivityKit` 的 `deviceManager`：
+使用 import { hidebug } from '@kit.PerformanceAnalysisKit';
 
-- `deviceManager.getAvailableMem()`
-- `deviceManager.getTotalMem()`
-
-插件模块已声明权限：
-
-```json5
-"requestPermissions": [
-  {
-    "name": "ohos.permission.GET_DEVICE_INFO"
-  }
-]
+```ts
+let memory = hidebug.getSystemMemInfo();
+let availableMem = memory.availableMem;
+let freeMem = memory.freeMem;
+let totalMem = memory.totalMem;
 ```
-
-如果宿主应用有额外权限策略，也请在应用侧模块中补充该权限。
