@@ -15,6 +15,8 @@
 ```yaml
 dependencies:
   flutter_ram_info: 
+    git: 
+      url: "https://github.com/lm83680/flutter_ram_info"
 ```
 
 ## 使用示例
@@ -45,6 +47,6 @@ final int? totalRamMB = await ramInfo.getTotalRamMB();
 ```ts
 let memory = hidebug.getSystemMemInfo();
 let availableMem = memory.availableMem;
-let freeMem = memory.freeMem;
+let freeMem = memory.freeMem;  // 本插件使用  let freeMem = availableMem; 在鸿蒙上更能体现可用内存的概念
 let totalMem = memory.totalMem;
 ```
