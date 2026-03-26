@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "flutter_ram_info",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}
